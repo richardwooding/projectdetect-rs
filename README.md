@@ -104,8 +104,9 @@ matching.
 
 ## MSRV
 
-**Rust 1.85+.** Several dependencies (`ignore`, `globset`, `indexmap`) and the
-optional `cel` feature use the 2024 edition, which stabilised in Rust 1.85.
+The default-feature crate builds on **Rust 1.85+** (its deps `ignore`,
+`globset`, and `indexmap` use the 2024 edition). The optional `cel` feature
+requires **Rust 1.86+**.
 
 ## Relationship to the Go library
 
