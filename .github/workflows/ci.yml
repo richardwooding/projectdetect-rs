@@ -16,32 +16,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        os: [ubuntu-latest]
+        # MSRV 1.85: current ignore/globset/indexmap and the optional `cel`
+        # feature all require edition2024 (stabilised in Rust 1.85).
+        rust: ["1.85", stable]
         include:
-          # MSRV guards the default-feature crate only. The optional `cel`
-          # feature pulls a dependency that requires edition2024 (Cargo
-          # 1.85+), so all-features is exercised on stable, not on the floor.
-          - { os: ubuntu-latest, rust: "1.79", all_features: false }
-          # Cross-platform coverage on stable, with the cel feature on.
-          # macOS and Windows exercise platform path handling and the per-OS
-          # config-dir resolution.
-          - { os: ubuntu-latest, rust: stable, all_features: true }
-          - { os: macos-latest, rust: stable, all_features: true }
-          - { os: windows-latest, rust: stable, all_features: true }
+          # Cross-platform coverage on stable: macOS and Windows exercise
+          # platform path handling and the per-OS config-dir resolution.
+          - os: macos-latest
+            rust: stable
+          - os: windows-latest
+            rust: stable
     steps:
       - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: ${{ matrix.rust }}
       - uses: Swatinem/rust-cache@v2
-      - name: Build
-        run: cargo build --locked
+      - name: Build (all features)
+        run: cargo build --all-features --locked
       - name: Test (default features)
         run: cargo test --locked
-      - name: Build (all features)
-        if: matrix.all_features
-        run: cargo build --all-features --locked
       - name: Test (all features)
-        if: matrix.all_features
         run: cargo test --all-features --locked
 
   lint:

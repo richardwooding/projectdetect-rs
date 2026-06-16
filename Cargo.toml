@@ -2,7 +2,7 @@
 name = "projectdetect"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.79"
+rust-version = "1.85"
 license = "MIT"
 description = "Detect what kind of project a directory is (Go, Node, Rust, Xcode, …) by canonical indicator files, with recursive discovery, file→project resolution, and custom YAML/CEL types."
 repository = "https://github.com/richardwooding/projectdetect-rs"

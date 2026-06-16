@@ -104,9 +104,8 @@ matching.
 
 ## MSRV
 
-The default-feature crate builds on **Rust 1.79+**. The optional `cel` feature
-pulls a dependency that requires `edition2024`, so enabling it needs **Rust
-1.85+**.
+**Rust 1.85+.** Several dependencies (`ignore`, `globset`, `indexmap`) and the
+optional `cel` feature use the 2024 edition, which stabilised in Rust 1.85.
 
 ## Relationship to the Go library
 
