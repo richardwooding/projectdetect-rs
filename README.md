@@ -102,6 +102,12 @@ error telling you to enable the feature. This keeps the CEL interpreter (and its
 transitive deps) out of the build for consumers that only need filename/glob
 matching.
 
+## MSRV
+
+The default-feature crate builds on **Rust 1.79+**. The optional `cel` feature
+pulls a dependency that requires `edition2024`, so enabling it needs **Rust
+1.85+**.
+
 ## Relationship to the Go library
 
 This is a faithful 1:1 port of the Go
