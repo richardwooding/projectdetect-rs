@@ -6,6 +6,8 @@
 
 Detect what kind of project a directory is — pure Rust, no unsafe.
 
+**Website:** [richardwooding.github.io/projectdetect-rs](https://richardwooding.github.io/projectdetect-rs/)
+
 A Rust port of the Go library [`github.com/richardwooding/projectdetect`](https://github.com/richardwooding/projectdetect).
 
 `projectdetect` answers a few questions over a filesystem:
