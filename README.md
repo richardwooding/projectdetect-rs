@@ -120,6 +120,12 @@ option (root-only `.gitignore`) is implemented here. The API is idiomatic Rust:
 `Indicator` is an enum, `Resolver` uses interior-mutable caching, and timeouts use
 `Option<Duration>` plus an optional `Arc<AtomicBool>` cancellation flag.
 
+## Sponsor
+
+If this saves you time, you can [sponsor its maintenance](https://github.com/sponsors/richardwooding).
+Sponsorship pays for the unglamorous half — triage, dependency bumps, release plumbing — and is
+never a condition of getting help here.
+
 ## License
 
 MIT © Richard Wooding
