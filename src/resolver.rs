@@ -28,10 +28,8 @@ impl Registry {
             if !m.is_empty() {
                 return Some((dir, m));
             }
-            match dir.parent() {
-                Some(parent) => dir = parent.to_path_buf(),
-                None => return None,
-            }
+            let parent = dir.parent()?;
+            dir = parent.to_path_buf();
         }
     }
 }
